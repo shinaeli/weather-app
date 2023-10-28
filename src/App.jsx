@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { motion } from "framer-motion"
+import { motion } from "framer-motion"
 import SearchLocation from './components/SearchLocation'
 import WeatherMain from './components/WeatherMain'
 import ErrorPage from './components/ErrorPage'
@@ -59,13 +59,17 @@ const App = () => {
   }
 
   return (
-    <div style={{backgroundImage: `url(${skyView})`}} className='container'>
-      <SearchLocation location={location} updateLocation={updateLocation} handleFetch={handleFetch} />
-      {isLoading && <Spinner />}
-      {weatherData && <WeatherMain weatherData={weatherData} />}
-      {errorMessage && <ErrorPage errorMessage={errorMessage} />}
-      {/* {weatherData ? <WeatherMain weatherData={weatherData} /> : <ErrorPage errorMessage={errorMessage} />} */}
-    </div>
+    <motion.div
+    initial={{ opacity: 0}}
+    animate={{ opacity: 1}}
+    transition={{ duration: 0.5 }} 
+    style={{backgroundImage: `url(${skyView})`}} 
+    className='container'>
+        <SearchLocation location={location} updateLocation={updateLocation} handleFetch={handleFetch} />
+        {isLoading && <Spinner />}
+        {weatherData && <WeatherMain weatherData={weatherData} />}
+        {errorMessage && <ErrorPage errorMessage={errorMessage} />}
+    </motion.div>
   )
 }
 
