@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #696969;
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  width: 45%;
+  margin: 20px auto;
+  border: solid #696969 1px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: lightgray;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+.location, .weather-main, .weather-main-temp, .sky-view {
+  width: 70%;
+  margin: 10px auto;
+  /* border: solid yellow 3px; */
+  text-align: center;
+  color: #6495ed;
+}
+
+.weather-main {
+  width: 25%;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: lightcyan;
+}
+
+.sky-view {
+  width: 150px;
+  height: 150px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sub-temp {
+  width: 40%;
+  margin: 10px auto;
+  /* border: solid yellow 3px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.temp-min, .temp-max {
+  margin-left: 5px;
+  color: #6495ed;
+}
+
+.sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.sub-main {
+  width: 48%;
+  padding: 5px;
+  border: solid 1px #789;
+  border-radius: 5px;
+  background-color: #789;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sub-img {
+  width: 25px;
+  height: 25px;
+  margin: 0px 20px;
+}
+
+.sub-1-title, .sub-1-value {
+  margin: 5px 0px;
+  color: midnightblue;
+}
+
+.sub-1-title {
+  color: #9932cc;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  text-align: center;
+  border-radius: 50%;
+}
+
+form {
+  width: 80%;
+  margin: 20px auto;
+  /* border: solid orange 3px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input {
+  display: block;
+  height: 50px;
+  width: 80%;
+  margin-right: 10px;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 20px;
+  color: #b22222;
+  outline-color: #6495ed;
+}
+
+.btn {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: solid #fafde6 1px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  background-color: #fafde6;
+}
+
+
+@media(min-width: 320px) and (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+
+  .sub-temp {
+    width: 55%;
+    justify-content: space-between;
+  }
+  
+  .temp-min, .temp-max {
+    margin-left: 5px;
+  }
+}
