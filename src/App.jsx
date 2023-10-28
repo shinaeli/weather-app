@@ -17,7 +17,7 @@ const App = () => {
   const updateLocation = item => setLocation(item);
 
   const skyView = getSkyView(weatherData.weather[0].main);
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHERMAPAPI_KEY}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location.toLowerCase()}&appid=${process.env.REACT_APP_WEATHERMAPAPI_KEY}&units=metric`;
  
   const fetchData = () => {
     // 'fetch(url)' return s a response object which is a promise
