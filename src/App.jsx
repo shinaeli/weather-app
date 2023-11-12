@@ -19,45 +19,41 @@ const App = () => {
   const skyView = getSkyView(weatherData.weather[0].main);
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location.toLowerCase()}&appid=${process.env.REACT_APP_WEATHERMAPAPI_KEY}&units=metric`;
  
-  const fetchData = () => {
-    // 'fetch(url)' return s a response object which is a promise
-    fetch(url).then(res => {
-      if(!res.ok) {
-        // an error message variable 'msg' is created
-        const msg = `There was an error: "${res.status} ${res.statusText}".`;
-        // the error message variable 'msg' is passed as an argument to the built-in 'new Error' object to create an an instance of an error object
-        // the error object created is thrown down to the 'catch' block
-        throw new Error(msg);
+  async function getData() {
+    try {
+      const response = await fetch(url);
+      console.log(response);
+      if(!response.ok) {
+        throw new Error(`There was an error: "${response.status} ${response.statusText}".`)
       }
-      console.log(res);
-      // 'json()' method is a function that is used to convert the data contained in a response object into a JSON readeable format
-      // 'json()' method always returns a promise 
-      return res.json();
-    }).then(data => {
+      const data = await response.json();
       console.log(data);
       setWeatherData(data);
+      setErrorMessage('');
       setIsLoading(false);
-    })
-    .catch(error => {
+    } catch (error) {
       console.log(error.message);
       setWeatherData(null);
-      setErrorMessage(error.message);
+      setErrorMessage(error => error.message);
       setIsLoading(false);
-    });
+    }
   }
+
 
   const handleFetch = () => {
     if(!location) {
       setErrorMessage('No data provided.');
       setIsLoading(false);
     } else {
-      setIsLoading(true)
-      fetchData()
+      setIsLoading(true);
+      getData();
       console.log('fetching');
     }
     setLocation('')
-  }
+  };
 
+  
+  
   return (
     <motion.div
     initial={{ opacity: 0}}
@@ -67,8 +63,8 @@ const App = () => {
     className='container'>
         <SearchLocation location={location} updateLocation={updateLocation} handleFetch={handleFetch} />
         {isLoading && <Spinner />}
+        {errorMessage && <ErrorPage errorMessage={errorMessage} />}    
         {weatherData && <WeatherMain weatherData={weatherData} />}
-        {errorMessage && <ErrorPage errorMessage={errorMessage} />}
     </motion.div>
   )
 }

@@ -10,7 +10,7 @@ const Pressure = ({ weatherData }) => {
         </div>
         <div className="sub-1">
             <h3 className='sub-1-title'>Pressure</h3>
-            <h3 className='sub-1-value'>{weatherData.main.pressure} hPa</h3>
+            <h3 className='sub-1-value'>{`${weatherData.main.pressure} hPa`}</h3>
         </div>
     </div>
   )
@@ -20,8 +20,8 @@ Pressure.propTypes = {
   weatherData: PropTypes.object.isRequired,
 }
 
-Pressure.defaultProp = {
-  weatherData: null,
-}
+// Pressure.defaultProp = {
+//   weatherData: {},
+// }
 
 export default Pressure

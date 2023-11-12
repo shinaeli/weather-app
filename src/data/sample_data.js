@@ -11,11 +11,6 @@ export const sampleData = {"coord":{"lon":10.9904,"lat":44.3473},
 
 // fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${process.env.REACT_APP_WEATHERMAPAPI_KEY}`)
 
-// async function fetchData() {
-//   const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${process.env.REACT_APP_WEATHERMAPAPI_KEY}`);
-//   const data = await response.json();
-//   console.log(data);
-//   return data;
-// };
+
   
                           

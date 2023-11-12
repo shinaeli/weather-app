@@ -10,7 +10,7 @@ const Humidity = ({ weatherData }) => {
         </div>
         <div className="sub-1">
             <h3 className='sub-1-title'>Humidity</h3>
-            <h3 className='sub-1-value'>{weatherData.main.humidity}%</h3>
+            <h3 className='sub-1-value'>{`${weatherData.main.humidity}%`}</h3>
         </div>
     </div>
   )
@@ -18,10 +18,6 @@ const Humidity = ({ weatherData }) => {
 
 Humidity.propTypes = {
   weatherData: PropTypes.object.isRequired,
-}
-
-Humidity.defaultProp = {
-  weatherData: null,
 }
 
 export default Humidity

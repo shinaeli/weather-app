@@ -15,15 +15,15 @@ const skyView = getSkyView(weatherData.weather[0].main);
     initial={{ opacity: 0, scale: 0.5 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ ease: "easeIn", duration: 1 }}>
-        <h1 className='location'>{weatherData.name}, {weatherData.sys.country}.</h1>
-        <h3 className='weather-main'>{weatherData.weather[0].main}</h3>
+        <h1 className='location'>{(`${weatherData.name}, ${weatherData.sys.country}.`)}</h1>
+        <h3 className='weather-main'>{`${weatherData.weather[0].main}`}</h3>
         <div className="sky-view">
             <img src={skyView} alt="show the sky" />
         </div>
-        <h3 className='weather-main-temp'>{Math.floor(weatherData.main.temp)}°C</h3>
+        <h3 className='weather-main-temp'>{`${Math.floor(weatherData.main.temp)}°C`}</h3>
         <div className="sub-temp">
-            <h3 className='temp-min'>Min: {Math.floor(weatherData.main["temp_min"])}°C</h3>
-            <h3 className='temp-max'>Max: {Math.floor(weatherData.main["temp_max"])}°C</h3>
+            <h3 className='temp-min'>Min: {`${ Math.floor(weatherData.main["temp_min"])}°C`}</h3>
+            <h3 className='temp-max'>Max: {`${ Math.floor(weatherData.main["temp_max"])}°C`}</h3>
         </div>
         <div className="sub">
             <Visibility weatherData={weatherData} />
@@ -39,10 +39,6 @@ const skyView = getSkyView(weatherData.weather[0].main);
 
 WeatherMain.propTypes = {
     weatherData: PropTypes.object.isRequired,
-}
-
-WeatherMain.defaultProp = {
-    weatherData: null,
 }
 
 export default WeatherMain

@@ -10,7 +10,7 @@ const Visibility = ({ weatherData }) => {
         </div>
         <div className="sub-1">
             <h3 className='sub-1-title'>Visibility</h3>
-            <h3 className='sub-1-value'>{weatherData.visibility}</h3>
+            <h3 className='sub-1-value'>{`${weatherData.visibility}`}</h3>
         </div>
     </div>
   )
@@ -18,10 +18,6 @@ const Visibility = ({ weatherData }) => {
 
 Visibility.propTypes = {
   weatherData: PropTypes.object.isRequired,
-}
-
-Visibility.defaultProp = {
-  weatherData: null,
 }
 
 export default Visibility
